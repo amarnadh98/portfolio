@@ -2,120 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>AI Robot Mascot Portfolio</title>
-  <style>
-    :root {
-      --primary: #0d1b2a;
-      --accent: #e63946;
-      --text: #ffffff;
-      --bg: #1b263b;
-      --fg: rgba(255,255,255,0.1);
-      --transition: 0.3s;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: var(--primary); color: var(--text); font-family: 'Segoe UI', sans-serif; overflow-x: hidden; }
-    header { position: relative; height: 100vh; }
-    canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-    .overlay { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; backdrop-filter: blur(5px); }
-    h1 { font-size: 4rem; margin-bottom: 1rem; }
-    p { font-size: 1.25rem; }
-    .chat-container { position: fixed; bottom: 2rem; right: 2rem; width: 300px; max-height: 400px; background: var(--primary); border: 2px solid var(--accent); border-radius: 10px; display: flex; flex-direction: column; overflow: hidden; }
-    .chat-header { padding: 0.5rem; background: var(--accent); text-align: center; cursor: pointer; }
-    .chat-messages { flex: 1; padding: 0.5rem; overflow-y: auto; }
-    .chat-input { display: flex; }
-    .chat-input input { flex: 1; padding: 0.5rem; border: none; outline: none; }
-    .chat-input button { padding: 0.5rem 1rem; border: none; background: var(--accent); color: var(--text); cursor: pointer; }
-    section { padding: 4rem 2rem; }
-    .projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 2rem; }
-    .card { background: var(--bg); border-radius: 10px; overflow: hidden; transition: transform var(--transition); }
-    .card:hover { transform: translateY(-5px); }
-    .card img { width: 100%; }
-    .card-content { padding: 1rem; }
-    footer { text-align: center; padding: 2rem; background: var(--primary); }
-  </style>
+  <link rel="stylesheet" href="css/style.css" /> <!-- external CSS file :contentReference[oaicite:1]{index=1} -->
 </head>
 <body>
   <header>
     <canvas id="scene"></canvas>
     <div class="overlay">
-      <h1>Hello, I&rsquo;m Aiko!</h1>
+      <h1>Hello, I’m Aiko!</h1>
       <p>Your AI & ML Engineer</p>
     </div>
   </header>
+
   <div class="chat-container" id="chat">
     <div class="chat-header">Chat with Aiko</div>
     <div class="chat-messages" id="messages"></div>
     <div class="chat-input">
-      <input type="text" id="input" placeholder="Say hi..." />
+      <input id="input" placeholder="Say hi…" />
       <button id="send">Send</button>
     </div>
   </div>
+
   <section id="about">
     <h2>About Me</h2>
-    <p>Passionate about building intelligent systems...</p>
+    <p>Passionate about building intelligent systems…</p>
   </section>
+
   <section id="projects">
     <h2>Projects</h2>
     <div class="projects">
-      <div class="card">
-        <img src="https://via.placeholder.com/400x200" alt="Project 1" />
-        <div class="card-content">
-          <h3>Project One</h3>
-          <p>Detail about project one.</p>
-        </div>
-      </div>
-      <!-- Repeat cards -->
+      <!-- project cards here -->
     </div>
   </section>
+
   <footer>
     <p>&copy; 2025 Aiko the AI Robot</p>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/loaders/GLTFLoader.js"></script>
-  <script>
-    // Three.js scene
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(50, window.innerWidth/window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('scene'), antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.position.set(0, 1.5, 3);
-    
-    const light = new THREE.HemisphereLight(0xffffff, 0x444444, 1);
-    scene.add(light);
-    
-    // Load 3D robot model
-    const loader = new THREE.GLTFLoader();
-    loader.load('https://models.babylonjs.com/CesiumMan/glTF/CesiumMan.gltf', function(gltf) {
-      const model = gltf.scene;
-      model.scale.set(1.5,1.5,1.5);
-      model.rotation.y = Math.PI;
-      scene.add(model);
-      animate();
-    });
-    
-    function animate() {
-      requestAnimationFrame(animate);
-      scene.rotation.y += 0.002;
-      renderer.render(scene, camera);
-    }
-
-    // Simple chat logic
-    const chat = document.getElementById('chat');
-    const header = chat.querySelector('.chat-header');
-    const messages = document.getElementById('messages');
-    const input = document.getElementById('input');
-    const send = document.getElementById('send');
-    header.onclick = () => chat.classList.toggle('open');
-    send.onclick = () => {
-      const text = input.value.trim();
-      if(!text) return;
-      const userMsg = document.createElement('div'); userMsg.textContent = text; userMsg.style.textAlign = 'right'; messages.appendChild(userMsg);
-      const botMsg = document.createElement('div'); botMsg.textContent = "I'm Aiko, your portfolio guide!"; messages.appendChild(botMsg);
-      messages.scrollTop = messages.scrollHeight;
-      input.value = '';
-    }
-  </script>
+  <!-- ES module imports for Three.js setup and chat logic :contentReference[oaicite:2]{index=2} -->
+  <script type="module" src="js/three-init.js"></script>
+  <script type="module" src="js/chat.js"></script>
 </body>
 </html>

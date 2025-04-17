@@ -1,0 +1,86 @@
+:root {
+    --primary: #0d1b2a;
+    --accent: #e63946;
+    --text: #fff;
+    --bg: #1b263b;
+    --transition: .3s;
+  }
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { 
+    background: var(--primary); 
+    color: var(--text); 
+    font-family: 'Segoe UI', sans-serif; 
+    overflow-x: hidden; 
+  }
+  
+  header {
+    position: relative; 
+    height: 100vh;
+  }
+  #scene {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+  }
+  
+  .overlay {
+    position: relative; z-index:1;
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    height:100%; backdrop-filter:blur(5px);
+  }
+  
+  /* Chat widget styling */
+  .chat-container {
+    position:fixed; bottom:2rem; right:2rem;
+    width:300px; border:2px solid var(--accent);
+    border-radius:10px; background:var(--primary);
+    overflow:hidden; height:40px;
+    transition: height var(--transition);
+  }
+  .chat-container.open { height:400px; } /* toggle via classList.toggle :contentReference[oaicite:5]{index=5} */
+  .chat-header {
+    padding:.5rem; background:var(--accent);
+    cursor:pointer; text-align:center;
+  }
+  .chat-messages, .chat-input { display:none; }
+  .chat-container.open .chat-messages,
+  .chat-container.open .chat-input {
+    display:block; /* show when .open is present :contentReference[oaicite:6]{index=6} */
+  }
+  .chat-messages {
+    padding:.5rem; overflow-y:auto;
+    height:calc(100% - 90px);
+  }
+  .chat-input {
+    display:flex; border-top:1px solid var(--accent);
+  }
+  .chat-input input {
+    flex:1; padding:.5rem; border:none; outline:none;
+  }
+  .chat-input button {
+    padding:.5rem 1rem; border:none;
+    background:var(--accent); color:var(--text);
+    cursor:pointer;
+  }
+  
+  /* Sections & project cards */
+  section { padding:4rem 2rem; }
+  .projects {
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+    gap:2rem;
+  }
+  .card {
+    background:var(--bg); border-radius:10px;
+    transition:transform var(--transition);
+  }
+  .card:hover { transform:translateY(-5px); }
+  .card img { width:100%; }
+  .card-content { padding:1rem; }
+  
+  footer {
+    text-align:center; padding:2rem;
+    background:var(--primary);
+  }
+  
