@@ -2,46 +2,414 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AI Robot Mascot Portfolio</title>
-  <link rel="stylesheet" href="css/style.css" /> <!-- external CSS file :contentReference[oaicite:1]{index=1} -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amarnadh's Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    #skills .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #skills .command-label {
+      margin: 0 auto 40px;
+      display: inline-flex;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <canvas id="scene"></canvas>
-    <div class="overlay">
-      <h1>Hello, I’m Aiko!</h1>
-      <p>Your AI & ML Engineer</p>
+  <div class="progress-bar"></div>
+  <!-- NAV -->
+  <nav>
+    <div class="container">
+      <div class="logo"><span class="gradient-text">Amarnadh</span></div>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
-  </header>
+  </nav>
 
-  <div class="chat-container" id="chat">
-    <div class="chat-header">Chat with Aiko</div>
-    <div class="chat-messages" id="messages"></div>
-    <div class="chat-input">
-      <input id="input" placeholder="Say hi…" />
-      <button id="send">Send</button>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+        <h1>Hi there, this is Amarnadh.</h1>
+        <h1><span class="typing-container"><span class="role-text"></span><span class="cursor">|</span></span></h1>
+        <p>Building intelligent AI solutions that solve real‑world challenges.</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn">View Projects</a>
+          <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+        <div class="scroll-indicator">
+          <div class="scroll-text">Scroll to explore</div>
+          <div class="scroll-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 5L12 19M12 19L19 12M12 19L5 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
     </div>
-  </div>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Passionate about building intelligent systems…</p>
   </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects">
-      <!-- project cards here -->
+  <!-- ABOUT -->
+  <section id="about" class="hidden">
+    <div class="container">
+      <div class="command-label" tabindex="0">
+        <i class="fas fa-regular fa-message"></i> ask-about-me
+      </div>
+      <h2 class="section-heading">About <span class="gradient-text">Me</span></h2>
+      <div class="about-container">
+        <!-- Chat‑style Card -->
+        <div class="chat-card">
+          <div class="status">
+            <span class="status-dot"></span>
+            AI Assistant is online
+          </div>
+          <div class="command-section">
+            <div class="label">Command:</div>
+            <div class="command-box" id="about-command">> Tell me about yourself</div>
+          </div>
+          <div class="response-section">
+            <div class="label">Response:</div>
+            <div class="response-box" id="about-response">
+                Hello! I'm an AI & ML Engineer with a passion for building intelligent systems.
+
+                I specialize in designing and implementing NLP, Computer Vision, and Deep Learning solutions that push the boundaries of what's possible.
+
+                My goal is to create AI systems that are both technically impressive and ethically sound.
+
+                <!-- <span class="highlight">Would you like to know more about my work?</span> -->
+            </div>
+            <div class="social-links">
+              <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-icon linkedin">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="https://github.com/yourusername" target="_blank" class="social-icon github">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://twitter.com/yourusername" target="_blank" class="social-icon twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Options List -->
+        <div class="option-list">
+          <div class="option-item active" data-content="about">
+            <div class="option-left">
+              <i class="icon">👤</i>
+              <span>About Me</span>
+            </div>
+            <div class="arrow">➜</div>
+          </div>
+          <div class="option-item" data-content="education">
+            <div class="option-left">
+              <i class="icon">🎓</i>
+              <span>My Education</span>
+            </div>
+            <div class="arrow">➜</div>
+          </div>
+          <div class="option-item" data-content="publications">
+            <div class="option-left">
+              <i class="icon">📚</i>
+              <span>Publications</span>
+            </div>
+            <div class="arrow">➜</div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Aiko the AI Robot</p>
-  </footer>
+  <!-- SKILLS -->
+  <section id="skills" class="hidden">
+    <div class="container">
+      <div class="command-label" tabindex="0">
+        <i class="fas fa-code"></i> system.getSkills()
+      </div>
+      <h2 class="section-heading">
+        <span>My</span> <span class="gradient-text">Skills</span>
+      </h2>
+      
+      <div class="terminal">
+        <div class="terminal-header">
+          <div class="terminal-btn red"></div>
+          <div class="terminal-btn yellow"></div>
+          <div class="terminal-btn green"></div>
+          <div class="terminal-title">skills.terminal</div>
+        </div>
+        <div class="terminal-body">
+          <pre id="cli-header" class="cli-header">get_skills --category="AI & Machine Learning" --format=detailed</pre>
+    
+          <!-- category cards -->
+          <div class="skill-categories">
+            <div class="category-card active" data-category="AI & Machine Learning">
+              <h3><i class="icon">🤖</i> AI &amp; Machine Learning</h3>
+              <p>TensorFlow/PyTorch, Deep Learning, Computer Vision, NLP, Reinforcement Learning</p>
+            </div>
+            <div class="category-card" data-category="Generative AI">
+              <h3><i class="icon">>_</i> Generative AI</h3>
+              <p>Large Language Models, Diffusion Models, Transformers, GANs, Prompt Engineering</p>
+            </div>
+            <div class="category-card" data-category="Programming & Tools">
+              <h3><i class="icon">☰</i> Programming &amp; Tools</h3>
+              <p>Python, Data Science Stack, Cloud Platforms, MLOps, Web Development</p>
+            </div>
+          </div>
+    
+          <!-- detail panels -->
+          <div class="detail-cards">
+            <!-- AI & ML -->
+            <div class="detail-card active" data-category="AI & Machine Learning">
+              <div class="detail-header">
+                <h3><i class="icon">{}</i> AI &amp; Machine Learning</h3>
+                <span class="skill-count">5 skills</span>
+              </div>
+              <div class="detail-body">
+                <div class="skill-line">
+                  <div class="skill-label">TensorFlow/PyTorch</div>
+                  <div class="skill-bar">
+                    <div class="skill-bar-fill" style="width:95%"></div>
+                  </div>
+                  <div class="skill-percent">95%</div>
+                </div>
+                <div class="skill-line">
+                  <div class="skill-label">Deep Learning</div>
+                  <div class="skill-bar">
+                    <div class="skill-bar-fill" style="width:90%"></div>
+                  </div>
+                  <div class="skill-percent">90%</div>
+                </div>
+                <div class="skill-line">
+                  <div class="skill-label">Computer Vision</div>
+                  <div class="skill-bar">
+                    <div class="skill-bar-fill" style="width:85%"></div>
+                  </div>
+                  <div class="skill-percent">85%</div>
+                </div>
+                <div class="skill-line">
+                  <div class="skill-label">NLP</div>
+                  <div class="skill-bar">
+                    <div class="skill-bar-fill" style="width:92%"></div>
+                  </div>
+                  <div class="skill-percent">92%</div>
+                </div>
+                <div class="skill-line">
+                  <div class="skill-label">Reinforcement Learning</div>
+                  <div class="skill-bar">
+                    <div class="skill-bar-fill" style="width:80%"></div>
+                  </div>
+                  <div class="skill-percent">80%</div>
+                </div>
+              </div>
+              <div class="loading">
+                Loading next skill <span class="loading-dots">…</span>
+              </div>
+            </div>
 
-  <!-- ES module imports for Three.js setup and chat logic :contentReference[oaicite:2]{index=2} -->
-  <script type="module" src="js/three-init.js"></script>
-  <script type="module" src="js/chat.js"></script>
+            <!-- Generative AI -->
+            <div class="detail-card" data-category="Generative AI">
+              <div class="detail-header">
+                <h3><i class="icon">{}</i> Generative AI</h3>
+                <span class="skill-count">5 skills</span>
+              </div>
+              <div class="detail-body">
+                <div class="skill-line">
+                  <div class="skill-label">Large Language Models</div>
+                  <div class="skill-bar">
+                    <div class="skill-bar-fill" style="width:92%"></div>
+                  </div>
+                  <div class="skill-percent">92%</div>
+                </div>
+                <div class="skill-line">
+                  <div class="skill-label">Transformers</div>
+                  <div class="skill-bar">
+                    <div class="skill-bar-fill" style="width:88%"></div>
+                  </div>
+                  <div class="skill-percent">88%</div>
+                </div>
+                <div class="skill-line">
+                  <div class="skill-label">Diffusion Models</div>
+                  <div class="skill-bar">
+                    <div class="skill-bar-fill" style="width:85%"></div>
+                  </div>
+                  <div class="skill-percent">85%</div>
+                </div>
+                <div class="skill-line">
+                  <div class="skill-label">GANs</div>
+                  <div class="skill-bar">
+                    <div class="skill-bar-fill" style="width:82%"></div>
+                  </div>
+                  <div class="skill-percent">82%</div>
+                </div>
+                <div class="skill-line">
+                  <div class="skill-label">Prompt Engineering</div>
+                  <div class="skill-bar">
+                    <div class="skill-bar-fill" style="width:90%"></div>
+                  </div>
+                  <div class="skill-percent">90%</div>
+                </div>
+              </div>
+              <div class="loading">
+                Loading next skill <span class="loading-dots">…</span>
+              </div>
+            </div>
+
+            <!-- Programming & Tools -->
+            <div class="detail-card" data-category="Programming & Tools">
+              <div class="detail-header">
+                <h3><i class="icon">{}</i> Programming &amp; Tools</h3>
+                <span class="skill-count">5 skills</span>
+              </div>
+              <div class="detail-body">
+                <div class="skill-line">
+                  <div class="skill-label">Python</div>
+                  <div class="skill-bar">
+                    <div class="skill-bar-fill" style="width:95%"></div>
+                  </div>
+                  <div class="skill-percent">95%</div>
+                </div>
+                <div class="skill-line">
+                  <div class="skill-label">Data Science Stack</div>
+                  <div class="skill-bar">
+                    <div class="skill-bar-fill" style="width:90%"></div>
+                  </div>
+                  <div class="skill-percent">90%</div>
+                </div>
+                <div class="skill-line">
+                  <div class="skill-label">Cloud Platforms</div>
+                  <div class="skill-bar">
+                    <div class="skill-bar-fill" style="width:85%"></div>
+                  </div>
+                  <div class="skill-percent">85%</div>
+                </div>
+                <div class="skill-line">
+                  <div class="skill-label">MLOps</div>
+                  <div class="skill-bar">
+                    <div class="skill-bar-fill" style="width:88%"></div>
+                  </div>
+                  <div class="skill-percent">88%</div>
+                </div>
+                <div class="skill-line">
+                  <div class="skill-label">Web Development</div>
+                  <div class="skill-bar">
+                    <div class="skill-bar-fill" style="width:80%"></div>
+                  </div>
+                  <div class="skill-percent">80%</div>
+                </div>
+              </div>
+              <div class="loading">
+                Loading next skill <span class="loading-dots">…</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PROJECTS -->
+  <section id="projects" class="hidden">
+    <div class="container">
+      <div class="command-label" tabindex="0">
+        <i class="fas fa-folder-open"></i> ai.loadProjects()
+      </div>
+      <h2 class="section-heading">
+        <span>My</span> <span class="gradient-text">Projects</span>
+      </h2>
+
+      <div class="terminal">
+        <div class="terminal-header">
+          <div class="terminal-btn red"></div>
+          <div class="terminal-btn yellow"></div>
+          <div class="terminal-btn green"></div>
+          <div class="terminal-title">projects.filter</div>
+        </div>
+        <div class="terminal-body">
+          <pre class="cli-header">$ find /projects -type project -filter "all" -format card</pre>
+          
+          <div class="filters">
+            <button class="active" data-filter="All">All Projects</button>
+            <button data-filter="gen-ai">Generative AI</button>
+            <button data-filter="nlp">NLP</button>
+            <button data-filter="cv">Computer Vision</button>
+            <button data-filter="ml">Machine Learning</button>
+          </div>
+
+          <div class="found-text">Found 6 projects matching filter "all"</div>
+          
+          <div class="cards projects">
+            <div class="card" data-category="gen-ai nlp">
+              <img src="images/proj1.jpg" alt="Intelligent Chatbot" style="width:100%; border-radius:8px 8px 0 0;">
+              <div class="card-content">
+                <h3>Intelligent Chatbot</h3>
+                <p>Advanced conversational agent with context awareness and emotional intelligence.</p>
+                <div class="tags">
+                  <span>GPT</span>
+                  <span>NLP</span>
+                  <span>PyTorch</span>
+                </div>
+                <a href="#" class="project-link">View Project →</a>
+              </div>
+            </div>
+
+            <div class="card" data-category="cv ml nlp">
+              <img src="images/proj2.jpg" alt="Object Detection System" style="width:100%; border-radius:8px 8px 0 0;">
+              <div class="card-content">
+                <h3>Object Detection System</h3>
+                <p>Real-time object detection and tracking using computer vision.</p>
+                <div class="tags">
+                  <span>YOLO</span>
+                  <span>OpenCV</span>
+                  <span>TensorFlow</span>
+                </div>
+                <a href="#" class="project-link">View Project →</a>
+              </div>
+            </div>
+
+            <div class="card" data-category="cv">
+              <img src="images/proj3.jpg" alt="AI Art Generator" style="width:100%; border-radius:8px 8px 0 0;">
+              <div class="card-content">
+                <h3>AI Art Generator</h3>
+                <p>Text-to-image generation using advanced diffusion models.</p>
+                <div class="tags">
+                  <span>Stable Diffusion</span>
+                  <span>GANs</span>
+                  <span>CLIP</span>
+                </div>
+                <a href="#" class="project-link">View Project →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="hidden">
+    <div class="container">
+      <h2 class="underline">Get In Touch</h2>
+      <p>Feel free to reach out for collaborations or just a friendly chat.</p>
+      <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+    </div>
+  </section>
+
+  <!-- Scroll to Top -->
+  <div id="toTop">↑</div>
+
+  <script src="js/main.js"></script>
 </body>
+
+<footer>
+    <div class="footer-container">
+        <p>&copy; 2025 Amarnadh. All rights reserved.</p>
+</footer>
 </html>
