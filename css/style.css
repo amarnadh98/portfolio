@@ -843,8 +843,8 @@
   }
   
   @keyframes blink {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
   }
   
   /* ===== Responsive Design ===== */
@@ -1157,36 +1157,16 @@
   }
   
   .cursor {
-    width: 0.1em;
+    /* display: inline-block; */
+    width: 3px;
     height: 1em;
     background: linear-gradient(45deg, var(--primary), var(--accent));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-left: 1px;
+    margin-left: 2px;
     vertical-align: bottom;
     animation: blink 0.7s steps(1) infinite;
-  }
-  
-  .role-text::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(45deg, var(--primary), var(--accent));
-    transform: translateY(-50%);
-    transition: width 0.3s ease, opacity 0.2s ease;
-    opacity: 1;
-  }
-  
-  .role-text.striking::after {
-    width: 100%;
-  }
-  
-  .role-text.fade-out::after {
-    opacity: 0;
   }
   
   @keyframes blink {

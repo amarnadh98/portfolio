@@ -299,30 +299,27 @@ async function initRoleTextAnimation() {
     const roles = ['An ML Engineer', 'A Gen AI Developer', 'A Finance Enthusiast'];
     let currentIndex = 0;
 
-    async function typeText(text) {
-        roleText.className = 'role-text';
-        container.style.opacity = '1';
-        roleText.textContent = '';
+    while (true) {
+        const currentText = roles[currentIndex];
         
-        // Type characters
-        for (let char of text) {
-            roleText.textContent += char;
+        // Type the text
+        for (let i = 0; i < currentText.length; i++) {
+            roleText.textContent = currentText.substring(0, i + 1);
             await sleep(100);
         }
         
-        await sleep(1000);
+        // Wait a bit when text is complete
+        await sleep(2000);
         
-        roleText.classList.add('striking');
-        await sleep(500);
+        // Delete the text
+        for (let i = currentText.length; i > 0; i--) {
+            roleText.textContent = currentText.substring(0, i - 1);
+            await sleep(50);  // Faster deletion
+        }
         
-        roleText.classList.add('fade-out');
-        container.style.opacity = '0';
-        await sleep(300);
-    }
-
-    while (true) {
-        await typeText(roles[currentIndex]);
+        // Move to next role
         currentIndex = (currentIndex + 1) % roles.length;
+        await sleep(500);  // Pause before next word
     }
 }
 
