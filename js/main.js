@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initAboutSection();
     initRoleTextAnimation();
     initScrollToTop();
+    initProjectModal();
 });
 
 // Navigation and scrolling
@@ -334,5 +335,102 @@ function initScrollToTop() {
 
     toTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// Project modal functionality
+function initProjectModal() {
+    const modal = $('#project-modal');
+    const closeBtn = $('.close-modal');
+    const projectLinks = $$('.project-link');
+
+    // Project data - you can add more details for each project
+    const projectData = {
+        'Intelligent Chatbot': {
+            description: `An advanced conversational agent built with state-of-the-art language models and emotional intelligence capabilities. This chatbot can understand context, maintain conversation history, and provide personalized responses based on user interaction patterns.`,
+            techStack: ['GPT', 'NLP', 'PyTorch', 'Transformers', 'FastAPI'],
+            features: [
+                'Context-aware conversation handling',
+                'Emotional intelligence and sentiment analysis',
+                'Multi-turn dialogue management',
+                'Personalized response generation',
+                'Real-time conversation processing'
+            ]
+        },
+        'Object Detection System': {
+            description: `A real-time object detection and tracking system that can identify and track multiple objects in video streams. The system uses state-of-the-art computer vision algorithms for high accuracy and performance.`,
+            techStack: ['YOLO', 'OpenCV', 'TensorFlow', 'Python', 'CUDA'],
+            features: [
+                'Real-time object detection and tracking',
+                'Multi-object tracking capabilities',
+                'High-performance GPU acceleration',
+                'Integration with video streams',
+                'Custom model training pipeline'
+            ]
+        },
+        'AI Art Generator': {
+            description: `A creative AI system that generates unique artwork from text descriptions. Using advanced diffusion models and neural networks to create high-quality, customizable artistic outputs.`,
+            techStack: ['Stable Diffusion', 'GANs', 'CLIP', 'PyTorch', 'Streamlit'],
+            features: [
+                'Text-to-image generation',
+                'Style transfer capabilities',
+                'Custom art style fine-tuning',
+                'High-resolution output',
+                'Interactive web interface'
+            ]
+        }
+    };
+
+    function showModal(projectTitle) {
+        const project = projectData[projectTitle];
+        if (!project) return;
+
+        // Update modal content
+        $('.modal-header h2').textContent = projectTitle;
+        $('.project-description').textContent = project.description;
+        
+        // Update tech stack
+        const modalTags = $('.modal-tags');
+        modalTags.innerHTML = project.techStack
+            .map(tech => `<span>${tech}</span>`)
+            .join('');
+        
+        // Update features
+        const featuresList = $('.features-list');
+        featuresList.innerHTML = project.features
+            .map(feature => `<li>${feature}</li>`)
+            .join('');
+
+        // Show modal
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+
+    function hideModal() {
+        modal.classList.remove('show');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+
+    // Event listeners
+    projectLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const projectTitle = e.target.closest('.card').querySelector('h3').textContent;
+            showModal(projectTitle);
+        });
+    });
+
+    closeBtn.addEventListener('click', hideModal);
+    
+    // Close modal when clicking outside
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) hideModal();
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            hideModal();
+        }
     });
 }
