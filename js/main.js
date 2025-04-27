@@ -346,39 +346,41 @@ function initProjectModal() {
 
     // Project data - you can add more details for each project
     const projectData = {
-        'Intelligent Chatbot': {
-            description: `An advanced conversational agent built with state-of-the-art language models and emotional intelligence capabilities. This chatbot can understand context, maintain conversation history, and provide personalized responses based on user interaction patterns.`,
-            techStack: ['GPT', 'NLP', 'PyTorch', 'Transformers', 'FastAPI'],
+        'Healthcare Insights Platform': {
+            description: `An end-to-end Healthcare analytics platform along with natural language-driven insights to support strategic decision-making.`,
+            techStack: ['LLMs', 'GCP', 'Agents', 'Prompt Engineering','Snowflake','Milvus', 'LangChain', 'LangGraph', 'DeepEval'],
             features: [
-                'Context-aware conversation handling',
-                'Emotional intelligence and sentiment analysis',
-                'Multi-turn dialogue management',
-                'Personalized response generation',
-                'Real-time conversation processing'
+                'ETL pipelines for seamless data migration and transformation to Snowflake',
+                'Entity extraction from enterprise data using Claude 3.5',
+                'RAG using Milvus vector database',
+                'Natural language query-driven insights dashboard',
+                'Agentic workflows orchestrated via LangChain and LangGraph',
+                'Implementation of Guardrails for safe and aligned LLM outputs',
+                'Automated LLM evaluations and feedback-driven prompt improvement using DeepEval'
             ]
         },
-        'Object Detection System': {
-            description: `A real-time object detection and tracking system that can identify and track multiple objects in video streams. The system uses state-of-the-art computer vision algorithms for high accuracy and performance.`,
-            techStack: ['YOLO', 'OpenCV', 'TensorFlow', 'Python', 'CUDA'],
+
+        'Recipe Recommender Chatbot': {
+            description: `A personalized recipe recommendation chatbot that suggests dishes based on users' cart items to boost engagement and basket value.`,
+            techStack: ['LLMs', 'RAG', 'Prompt Engineering','Generative AI', 'Web Scraping', 'Dialogflow CX'],
             features: [
-                'Real-time object detection and tracking',
-                'Multi-object tracking capabilities',
-                'High-performance GPU acceleration',
-                'Integration with video streams',
-                'Custom model training pipeline'
+                'Natural language understanding for personalized recipe suggestions',
+                'Real-time cart monitoring and contextual recommendations',
+                'Takes into account user interactions during the session for smarter suggestions',
+                'Enhanced user engagement through conversational interface'
             ]
         },
-        'AI Art Generator': {
-            description: `A creative AI system that generates unique artwork from text descriptions. Using advanced diffusion models and neural networks to create high-quality, customizable artistic outputs.`,
-            techStack: ['Stable Diffusion', 'GANs', 'CLIP', 'PyTorch', 'Streamlit'],
+        "Enhancing Student Engagement through Teacher's Emotion Analysis": {
+            description: `A deep learning-based system to enhance student engagement by analyzing teacher emotions and correlating them with student feedback sentiment.`,
+            techStack: ['CNN', 'VGG16', 'BERT', 'NLP', 'Sentiment Analysis', 'Deep Learning'],
             features: [
-                'Text-to-image generation',
-                'Style transfer capabilities',
-                'Custom art style fine-tuning',
-                'High-resolution output',
-                'Interactive web interface'
+                'Facial emotion recognition of teachers and students using VGG16 CNN model',
+                'Sentiment analysis of student comments using BERT-CNN hybrid model',
+                'Correlation analysis between teacher emotions and student engagement levels',
+                'Automated insights into class dynamics and engagement patterns',
+                'Aims to improve classroom experience through emotion-driven analytics'
             ]
-        }
+        },
     };
 
     function showModal(projectTitle) {
