@@ -236,11 +236,13 @@ function updateAboutContent(contentType) {
     switch (contentType) {
         case 'about':
             command = '> Tell me about yourself';
-            content = `Hello! I'm an AI & ML Engineer with a passion for building intelligent systems.
+            content = `Hello! I'm an AI & ML Engineer passionate about building intelligent, real-world solutions.
 
-                I specialize in designing and implementing NLP, Computer Vision, and Deep Learning solutions that push the boundaries of what's possible.
+                       I specialize in designing and deploying Generative AI systems, LLM-powered agents, and Retrieval-Augmented Generation (RAG) workflows.
 
-                My goal is to create AI systems that are both technically impressive and ethically sound.`;
+                       My work focuses on creating scalable, adaptive, and user-centric AI applications that bridge the gap between cutting-edge research and impactful product experiences.
+                        
+                       I am driven by a curiosity for innovation, a commitment to continuous learning, and a strong belief in building AI systems that are not just technically powerful, but also responsible and user-aligned.`;
             break;
             
         case 'education':
