@@ -16,7 +16,6 @@
       <ul>
         <li><a href="#hero">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -103,6 +102,13 @@
             </div>
             <div class="arrow">➜</div>
           </div>
+          <div class="option-item" data-content="skills">
+            <div class="option-left">
+              <i class="icon">💻</i>
+              <span>My Skills</span>
+            </div>
+            <div class="arrow">➜</div>
+          </div>
           <div class="option-item" data-content="publications">
             <div class="option-left">
               <i class="icon">📚</i>
@@ -114,194 +120,6 @@
       </div>
     </div>
   </section>
-
-  <!-- SKILLS -->
-  <section id="skills" class="hidden">
-    <div class="container">
-      <div class="command-label" tabindex="0">
-        <i class="fas fa-code"></i> system.getSkills()
-      </div>
-      <h2 class="section-heading">
-        <span>My</span> <span class="gradient-text">Skills</span>
-      </h2>
-      
-      <div class="terminal">
-        <div class="terminal-header">
-          <div class="terminal-btn red"></div>
-          <div class="terminal-btn yellow"></div>
-          <div class="terminal-btn green"></div>
-          <div class="terminal-title">skills.terminal</div>
-        </div>
-        <div class="terminal-body">
-          <pre id="cli-header" class="cli-header">get_skills --category="AI & Machine Learning" --format=detailed</pre>
-    
-          <!-- category cards -->
-          <div class="skill-categories">
-            <div class="category-card active" data-category="AI & Machine Learning">
-              <h3><i class="icon">🤖</i> AI &amp; Machine Learning</h3>
-              <p>TensorFlow/PyTorch, Deep Learning, Computer Vision, NLP, Reinforcement Learning</p>
-            </div>
-            <div class="category-card" data-category="Generative AI">
-              <h3><i class="icon">>_</i> Generative AI</h3>
-              <p>Large Language Models, Diffusion Models, Transformers, GANs, Prompt Engineering</p>
-            </div>
-            <div class="category-card" data-category="Programming & Tools">
-              <h3><i class="icon">☰</i> Programming &amp; Tools</h3>
-              <p>Python, Data Science Stack, Cloud Platforms, MLOps, Web Development</p>
-            </div>
-          </div>
-    
-          <!-- detail panels -->
-          <div class="detail-cards">
-            <!-- AI & ML -->
-            <div class="detail-card active" data-category="AI & Machine Learning">
-              <div class="detail-header">
-                <h3><i class="icon">{}</i> AI &amp; Machine Learning</h3>
-                <span class="skill-count">5 skills</span>
-              </div>
-              <div class="detail-body">
-                <div class="skill-line">
-                  <div class="skill-label">TensorFlow/PyTorch</div>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill" style="width:95%" data-future="98"></div>
-                  </div>
-                  <div class="skill-percent">95%</div>
-                </div>
-                <div class="skill-line">
-                  <div class="skill-label">Deep Learning</div>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill" style="width:90%" data-future="95"></div>
-                  </div>
-                  <div class="skill-percent">90%</div>
-                </div>
-                <div class="skill-line">
-                  <div class="skill-label">Computer Vision</div>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill" style="width:85%" data-future="90"></div>
-                  </div>
-                  <div class="skill-percent">85%</div>
-                </div>
-                <div class="skill-line">
-                  <div class="skill-label">NLP</div>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill" style="width:92%" data-future="96"></div>
-                  </div>
-                  <div class="skill-percent">92%</div>
-                </div>
-                <div class="skill-line">
-                  <div class="skill-label">Reinforcement Learning</div>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill" style="width:80%" data-future="88"></div>
-                  </div>
-                  <div class="skill-percent">80%</div>
-                </div>
-              </div>
-              <div class="loading">
-                Loading next skill <span class="loading-dots">…</span>
-              </div>
-            </div>
-
-            <!-- Generative AI -->
-            <div class="detail-card" data-category="Generative AI">
-              <div class="detail-header">
-                <h3><i class="icon">{}</i> Generative AI</h3>
-                <span class="skill-count">5 skills</span>
-              </div>
-              <div class="detail-body">
-                <div class="skill-line">
-                  <div class="skill-label">Large Language Models</div>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill" style="width:92%" data-future="97"></div>
-                  </div>
-                  <div class="skill-percent">92%</div>
-                </div>
-                <div class="skill-line">
-                  <div class="skill-label">Transformers</div>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill" style="width:88%" data-future="93"></div>
-                  </div>
-                  <div class="skill-percent">88%</div>
-                </div>
-                <div class="skill-line">
-                  <div class="skill-label">Diffusion Models</div>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill" style="width:85%"></div>
-                  </div>
-                  <div class="skill-percent">85%</div>
-                </div>
-                <div class="skill-line">
-                  <div class="skill-label">GANs</div>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill" style="width:82%"></div>
-                  </div>
-                  <div class="skill-percent">82%</div>
-                </div>
-                <div class="skill-line">
-                  <div class="skill-label">Prompt Engineering</div>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill" style="width:90%"></div>
-                  </div>
-                  <div class="skill-percent">90%</div>
-                </div>
-              </div>
-              <div class="loading">
-                Loading next skill <span class="loading-dots">…</span>
-              </div>
-            </div>
-
-            <!-- Programming & Tools -->
-            <div class="detail-card" data-category="Programming & Tools">
-              <div class="detail-header">
-                <h3><i class="icon">{}</i> Programming &amp; Tools</h3>
-                <span class="skill-count">5 skills</span>
-              </div>
-              <div class="detail-body">
-                <div class="skill-line">
-                  <div class="skill-label">Python</div>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill" style="width:95%"></div>
-                  </div>
-                  <div class="skill-percent">95%</div>
-                </div>
-                <div class="skill-line">
-                  <div class="skill-label">Data Science Stack</div>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill" style="width:90%"></div>
-                  </div>
-                  <div class="skill-percent">90%</div>
-                </div>
-                <div class="skill-line">
-                  <div class="skill-label">Cloud Platforms</div>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill" style="width:85%"></div>
-                  </div>
-                  <div class="skill-percent">85%</div>
-                </div>
-                <div class="skill-line">
-                  <div class="skill-label">MLOps</div>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill" style="width:88%"></div>
-                  </div>
-                  <div class="skill-percent">88%</div>
-                </div>
-                <div class="skill-line">
-                  <div class="skill-label">Web Development</div>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill" style="width:80%"></div>
-                  </div>
-                  <div class="skill-percent">80%</div>
-                </div>
-              </div>
-              <div class="loading">
-                Loading next skill <span class="loading-dots">…</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
 
   <!-- PROJECTS -->
   <section id="projects" class="hidden">
@@ -424,3 +242,4 @@
     <p>&copy; 2025 Amarnadh. All rights reserved.</p>
 </footer>
 </html>
+``` 

@@ -14,11 +14,6 @@ const animationObserver = new IntersectionObserver(
                 target.classList.remove('hidden');
                 target.classList.add('visible');
                 
-                // Special handling for skill bars in visible detail cards
-                if (target.classList.contains('detail-card') && target.classList.contains('active')) {
-                    initSkillBars(target);
-                }
-                
                 // Special handling for education items
                 if (target.classList.contains('education-item')) {
                     target.style.opacity = '1';
@@ -38,7 +33,7 @@ const animationObserver = new IntersectionObserver(
 // Initialize all animations and event listeners when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Observe all elements that need animations
-    $$('section.hidden, .detail-card, .education-item').forEach(el => {
+    $$('section.hidden, .education-item').forEach(el => {
         if (el.classList.contains('education-item')) {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
@@ -48,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     initSmoothScrolling();
     initScrollProgress();
-    initSkillsSection();
     initProjectFilters();
     initAboutSection();
     initRoleTextAnimation();
@@ -82,91 +76,6 @@ function initScrollProgress() {
         // Update nav background
         const opacity = Math.min(scrolled / 200, 0.95);
         nav.style.backgroundColor = `rgba(15,15,24,${opacity})`;
-    });
-}
-
-// Skills section functionality
-function initSkillsSection() {
-    const categoryCards = $$('.category-card');
-    const detailCards = $$('.detail-card');
-    const cliHeader = $('#cli-header');
-    const defaultCategory = 'AI & Machine Learning';
-
-    // Set default active category
-    categoryCards.forEach(card => {
-        if (card.dataset.category === defaultCategory) {
-            card.classList.add('active');
-            showSkillDetails(card.dataset.category);
-        }
-    });
-
-    // Category click handler
-    categoryCards.forEach(card => {
-        card.addEventListener('click', () => {
-            if (card.classList.contains('active')) return;
-            
-            categoryCards.forEach(c => c.classList.remove('active'));
-            card.classList.add('active');
-            showSkillDetails(card.dataset.category);
-        });
-    });
-
-    function showSkillDetails(category) {
-        detailCards.forEach(card => {
-            if (card.dataset.category === category) {
-                card.style.display = 'block';
-                setTimeout(() => {
-                    card.classList.add('active');
-                    initSkillBars(card);
-                }, 50);
-            } else {
-                card.classList.remove('active');
-                card.style.display = 'none';
-            }
-        });
-        
-        if (cliHeader) {
-            cliHeader.textContent = `get_skills --category="${category}" --format=detailed`;
-        }
-    }
-}
-
-// Initialize skill bar animations
-function initSkillBars(container) {
-    // Get all skill bars at once to minimize DOM queries
-    const skillBars = container.querySelectorAll('.skill-bar');
-    
-    // Use a single rAF for better performance
-    requestAnimationFrame(() => {
-        skillBars.forEach(bar => {
-            const fillBar = bar.querySelector('.skill-bar-fill');
-            if (!fillBar) return;
-            
-            // Get width and future percentage from inline styles/data attributes
-            const targetWidth = fillBar.style.width;
-            
-            // Reset width
-            fillBar.style.transition = 'none';
-            fillBar.style.width = '0';
-            
-            // Force reflow
-            fillBar.offsetHeight;
-            
-            // Set transition and animate to target width
-            fillBar.style.transition = 'width 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-            fillBar.style.width = targetWidth;
-            
-            // Add future glow if data-future is present
-            const futurePercent = fillBar.getAttribute('data-future');
-            if (futurePercent) {
-                const currentPercent = parseInt(targetWidth);
-                const futureDiff = parseInt(futurePercent) - currentPercent;
-                // Set a CSS custom property for the glow width
-                if (futureDiff > 0) {
-                    fillBar.style.setProperty('--future-width', `${futureDiff}%`);
-                }
-            }
-        });
     });
 }
 
@@ -266,6 +175,44 @@ function updateAboutContent(contentType) {
                     <h4>GCP ACE</h4>
                     <span class="institution">Associate Cloud Engineer Certification</span>
                 </div>
+            </div>`;
+            break;
+            
+        case 'skills':
+            command = '> Show me your skills';
+            content = `<div class="skills-content">
+                <div class="education-item">
+                    <i class="fas fa-brain gradient-text"></i>
+                    <h4>Skills</h4>
+                    <div class="tags">
+                        <span>Generative AI</span>
+                        <span>Agents</span>
+                        <span>Prompt Engineering</span>
+                        <span>LLMOps</span>
+                        <span>Computer Vision</span>
+                        <span>NLP</span>
+                        <span>Machine Learning</span>
+                        <span>Deep Learning</span>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <i class="fas fa-code gradient-text"></i>
+                    <h4>Programming & Tools</h4>
+                    <div class="tags">
+                        <span>Python</span>
+                        <span>Google Cloud Platform</span>
+                        <span>MySQL</span>
+                        <span>Langchain</span>
+                        <span>Langgraph</span>
+                        <span>CrewAI</span>
+                        <span>Docker</span>
+                        <span>Behave & Cypress</span>
+                        <span>FastAPI</span>
+                        <span>Streamlit</span>
+                    </div>
+                </div>
+
             </div>`;
             break;
             
