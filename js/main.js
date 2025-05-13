@@ -330,6 +330,18 @@ function initProjectModal() {
                 'Aims to improve classroom experience through emotion-driven analytics'
             ]
         },
+        'GTM Intelligence Assistant': {
+            description: `An internal tool to accelerate client research for GTM teams by generating company profiles, use case recommendations, and persona insights using generative AI and vector-based retrieval.`,
+            techStack: ['LLMs', 'RAG', 'ChromaDB', 'Web Scraping', 'Streamlit', 'Linkedin Scraping'],
+            features: [
+                'Automated generation of detailed company reports using Gemini Flash models',
+                'Persona analysis from LinkedIn URLs(scraping linkedin profile) to guide pitch strategies',
+                'High-level use case suggestions tailored to each client',
+                'Vector-based retrieval of relevant past case studies and decks using ChromaDB',
+                'Web scraping for real-time business and financial data aggregation',
+                'Streamlit-based intuitive user interface for easy access and navigation'
+            ]
+        },
     };
 
     function showModal(projectTitle) {
